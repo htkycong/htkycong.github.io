@@ -28,7 +28,7 @@
 <p>LifeWay (“ứng dụng”) được phát triển bởi LifeWay. Chính sách này giải thích ứng dụng xử lý dữ liệu của bạn như thế nào.</p>
 
 <h2>1. Dữ liệu bạn nhập</h2>
-<p>Tên hoặc biệt danh, ngày sinh, giới tính, tuổi thọ kỳ vọng, mục tiêu, thông tin người thân (tên, quan hệ, ngày sinh) và ghi chú hằng ngày <strong>chỉ được lưu trên thiết bị của bạn</strong>. Ứng dụng dùng được đầy đủ mà không cần tài khoản. Chỉ khi bạn tự đăng nhập để kết nối với người thân (mục 4) thì một số dữ liệu mới được gửi lên máy chủ, và mục 4 liệt kê đầy đủ những dữ liệu đó. Chúng tôi không bán dữ liệu của bạn.</p>
+<p>Tên hoặc biệt danh, ngày sinh, giới tính, tuổi thọ kỳ vọng, mục tiêu, thông tin người thân (tên, quan hệ, ngày sinh) và ghi chú hằng ngày <strong>chỉ được lưu trên thiết bị của bạn</strong>. Ứng dụng dùng được đầy đủ mà không cần tài khoản. Các dữ liệu này không được gửi lên máy chủ. Thứ được gửi đi gồm: dữ liệu kết nối người thân khi bạn tự đăng nhập (mục 4), và thống kê sử dụng cùng báo cáo lỗi không chứa nội dung bạn viết (mục 5). Chúng tôi không bán dữ liệu của bạn.</p>
 <p>Bạn có thể xóa toàn bộ dữ liệu bất cứ lúc nào trong <em>Cài đặt → Xóa toàn bộ dữ liệu</em>, hoặc bằng cách gỡ ứng dụng.</p>
 
 <h2>2. Thông báo và widget</h2>
@@ -45,7 +45,7 @@
 <p>Xem cách Google sử dụng dữ liệu: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>. Bạn có thể tắt quảng cáo cá nhân hóa trong cài đặt quảng cáo của thiết bị.</p>
 
 <h2>4. Tài khoản và kết nối người thân (tùy chọn)</h2>
-<p>Bạn có thể đăng nhập bằng Google hoặc Apple để kết nối với người thân: nhắn tin, gửi ảnh, chia sẻ tâm trạng và trả lời câu hỏi gia đình mỗi ngày. Khi đó, chúng tôi lưu những dữ liệu sau trên Google Firebase (Authentication, Cloud Firestore):</p>
+<p>Bạn có thể đăng nhập bằng Google hoặc Apple để kết nối với người thân: nhắn tin, gửi ảnh, đăng Khoảnh khắc, chia sẻ tâm trạng và trả lời câu hỏi gia đình mỗi ngày. Khi đó, chúng tôi lưu những dữ liệu sau trên Google Firebase (Authentication, Cloud Firestore):</p>
 <ul>
   <li><strong>Thông tin tài khoản</strong>: tên, email, ảnh hồ sơ (nếu có) và mã người dùng do Google/Apple cung cấp, cùng ngôn ngữ ứng dụng của bạn. Nếu bạn chọn “Ẩn email của tôi” với Apple, chúng tôi chỉ nhận được địa chỉ chuyển tiếp.</li>
   <li><strong>Mã kết nối</strong>: mỗi tài khoản có một mã cố định gồm 6 ký tự, gắn với tên hiển thị của bạn. Ai đã đăng nhập và nhập đúng mã thì thấy được tên hiển thị của bạn. Không ai xem được danh sách các mã.</li>
@@ -53,31 +53,41 @@
   <li><strong>Thông tin chia sẻ với người đã kết nối</strong>: thời điểm bạn hoạt động gần nhất (để hiện trạng thái “đang online”), tâm trạng trong ngày (biểu tượng cảm xúc và ghi chú tối đa 80 ký tự), câu trả lời cho câu hỏi gia đình mỗi ngày (tối đa 200 ký tự), và <strong>ngày sinh của bạn, chỉ khi bạn bật “Chia sẻ ngày sinh với người thân”</strong>.</li>
   <li><strong>Tin nhắn</strong> giữa hai tài khoản đã kết nối, kèm thời điểm gửi. Tin nhắn được lưu cho đến khi bạn xóa tài khoản.</li>
   <li><strong>Ảnh gửi trong tin nhắn</strong>: ảnh bạn chọn được nén lại rồi lưu tạm trên máy chủ. Khi người nhận mở cuộc trò chuyện, ảnh được lưu vào máy của họ và <strong>xóa khỏi máy chủ</strong>. Ảnh người nhận chưa mở sẽ được ứng dụng của người gửi tự xóa sau khoảng 30 ngày (khi người gửi mở lại ứng dụng), và luôn bị xóa khi người gửi xóa tài khoản.</li>
+  <li><strong>Khoảnh khắc</strong>: một dòng trạng thái (tối đa 280 ký tự) và/hoặc một ảnh. Chỉ những người thân đã kết nối với bạn lúc bạn đăng mới thấy. Người thân có thể thả cảm xúc và bình luận (tối đa 200 ký tự). Mỗi bài hiển thị trong 24 giờ. Sau đó ứng dụng của bạn tự xóa bài, ảnh và bình luận khỏi máy chủ khi bạn mở lại ứng dụng, thường là khoảng 24 giờ sau khi đăng. Người xem tải ảnh một lần và lưu tạm trong bộ nhớ đệm trên máy của họ.</li>
   <li><strong>Mã thông báo đẩy</strong> của thiết bị (Expo push token), để gửi thông báo tin nhắn và yêu cầu kết nối.</li>
 </ul>
 <p>Các dữ liệu trên chỉ bạn và những người đã kết nối với bạn xem được. Dữ liệu chỉ dùng để vận hành tính năng kết nối. Chúng tôi không dùng nó cho quảng cáo và không bán nó. Google là bên xử lý dữ liệu cho chúng tôi, theo <a href="https://firebase.google.com/support/privacy">điều khoản quyền riêng tư của Firebase</a>. Thông báo đẩy được gửi qua <a href="https://expo.dev/privacy">dịch vụ của Expo</a>, rồi chuyển tiếp qua Firebase Cloud Messaging (Android) hoặc Apple Push Notification service (iOS). Dữ liệu có thể được lưu hoặc xử lý trên máy chủ ở ngoài quốc gia của bạn.</p>
 <p><strong>Chặn và báo cáo</strong>: bạn có thể chặn hoặc báo cáo một tài khoản ngay trong ứng dụng. Chặn sẽ xóa kết nối và ngăn hai bên liên lạc với nhau. Mỗi báo cáo gồm người báo cáo, tài khoản bị báo cáo, tin nhắn liên quan (nếu có) và lý do. Chúng tôi xem xét các báo cáo và có thể gỡ nội dung hoặc khóa tài khoản vi phạm. Báo cáo được giữ lại để đảm bảo an toàn, kể cả sau khi tài khoản bị xóa.</p>
-<p><strong>Xóa tài khoản</strong>: bạn có thể xóa tài khoản ngay trong ứng dụng (<em>Cài đặt → Tài khoản → Xóa tài khoản</em>). Thao tác này xóa <strong>ngay lập tức</strong> thông tin tài khoản, mã kết nối, yêu cầu kết nối, các kết nối, tin nhắn (cả gửi và nhận), ảnh còn trên máy chủ, danh sách chặn của bạn và mã thông báo. Nếu bạn đăng nhập bằng Apple, quyền đăng nhập cấp cho ứng dụng cũng bị thu hồi. Một số dữ liệu không bị xóa: ảnh và tin nhắn người thân <strong>đã nhận và lưu trên máy của họ</strong> vẫn nằm trên máy họ, và dữ liệu chỉ lưu trên máy bạn (mục 1) vẫn giữ nguyên cho đến khi bạn tự xóa. Xem hướng dẫn: <a href="../delete-account/">htkycong.github.io/lifeway/delete-account</a>.</p>
+<p><strong>Xóa tài khoản</strong>: bạn có thể xóa tài khoản ngay trong ứng dụng (<em>Cài đặt → Tài khoản → Xóa tài khoản</em>). Thao tác này xóa <strong>ngay lập tức</strong> thông tin tài khoản, mã kết nối, yêu cầu kết nối, các kết nối, tin nhắn (cả gửi và nhận), ảnh còn trên máy chủ, Khoảnh khắc của bạn (kèm ảnh và bình luận), danh sách chặn của bạn và mã thông báo. Nếu bạn đăng nhập bằng Apple, quyền đăng nhập cấp cho ứng dụng cũng bị thu hồi. Một số dữ liệu không bị xóa: ảnh và tin nhắn người thân <strong>đã nhận và lưu trên máy của họ</strong> vẫn nằm trên máy họ; bình luận bạn viết trên Khoảnh khắc của người khác chỉ mất khi bài đó hết hạn và được dọn; và dữ liệu chỉ lưu trên máy bạn (mục 1) vẫn giữ nguyên cho đến khi bạn tự xóa. Xem hướng dẫn: <a href="../delete-account/">htkycong.github.io/lifeway/delete-account</a>.</p>
 
-<h2>5. Thời tiết (tùy chọn, mặc định tắt)</h2>
+<h2>5. Thống kê sử dụng và báo lỗi</h2>
+<p>Để biết tính năng nào hữu ích và sửa lỗi nhanh hơn, ứng dụng dùng <strong>Firebase Analytics</strong> và <strong>Firebase Crashlytics</strong> của Google:</p>
+<ul>
+  <li><strong>Thống kê sử dụng</strong>: màn hình bạn mở và các sự kiện như “đã gửi một tin nhắn (dạng ảnh)”, “đã chọn tâm trạng”, “đã thêm việc cần làm”. Sự kiện <strong>không chứa nội dung</strong> bạn viết hay gửi. Kèm theo là mã cài đặt ứng dụng, thông tin thiết bị và hệ điều hành, quốc gia hoặc khu vực gần đúng.</li>
+  <li><strong>Báo cáo lỗi</strong>: khi ứng dụng gặp lỗi, Crashlytics gửi thông tin kỹ thuật về lỗi đó cùng loại thiết bị và phiên bản hệ điều hành.</li>
+  <li>Nếu bạn đăng nhập, hai dịch vụ này được gắn với mã người dùng Firebase (một mã ngẫu nhiên, không phải tên hay email) để chúng tôi hiểu cách mọi người dùng ứng dụng theo thời gian.</li>
+</ul>
+<p>Chúng tôi chỉ dùng dữ liệu này để cải thiện ứng dụng, không dùng để cá nhân hóa quảng cáo. Xem cách Google xử lý: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
+
+<h2>6. Thời tiết (tùy chọn, mặc định tắt)</h2>
 <p>Nếu bạn bật thời tiết thật cho cảnh trang chủ (<em>Cài đặt → Bối cảnh trang chủ</em>), ứng dụng xin quyền <strong>vị trí gần đúng</strong>, chỉ khi bạn đang dùng app và không bao giờ chạy nền. Tọa độ được làm tròn đến khoảng 10 km rồi gửi tới dịch vụ thời tiết miễn phí <a href="https://open-meteo.com/en/terms">Open-Meteo</a>, chỉ để lấy tình trạng thời tiết hiện tại (nắng, mưa, tuyết…). Chúng tôi không lưu vị trí và không gửi vị trí cho bên nào khác. Bạn có thể tắt tính năng này hoặc thu hồi quyền vị trí bất cứ lúc nào.</p>
 
-<h2>6. Ảnh đại diện và ảnh trong tin nhắn</h2>
-<p>Khi bạn chọn ảnh đại diện hoặc gửi ảnh trong tin nhắn, ứng dụng xin quyền truy cập thư viện ảnh và chỉ đọc đúng ảnh bạn chọn. Ảnh đại diện chỉ lưu trên máy của bạn và không được tải lên. Ảnh gửi trong tin nhắn được xử lý như mô tả ở mục 4. Ứng dụng không dùng camera hay micro.</p>
+<h2>7. Ảnh đại diện và ảnh trong tin nhắn</h2>
+<p>Khi bạn chọn ảnh đại diện, gửi ảnh trong tin nhắn hoặc đăng ảnh lên Khoảnh khắc, ứng dụng xin quyền truy cập thư viện ảnh và chỉ đọc đúng ảnh bạn chọn. Ảnh đại diện chỉ lưu trên máy của bạn và không được tải lên. Ảnh trong tin nhắn và Khoảnh khắc được xử lý như mô tả ở mục 4. Ứng dụng không dùng camera hay micro.</p>
 
-<h2>7. Sao lưu và khôi phục</h2>
+<h2>8. Sao lưu và khôi phục</h2>
 <p>Bạn có thể xuất dữ liệu ra một tệp sao lưu (JSON) và tự chọn nơi lưu hoặc gửi tệp đó, ví dụ Google Drive, iCloud hay email. Bạn cũng có thể nhập lại tệp này để khôi phục. Chúng tôi không nhận được tệp sao lưu của bạn. Hãy giữ tệp này cẩn thận vì nó chứa dữ liệu cá nhân bạn đã nhập.</p>
 
-<h2>8. Chia sẻ hình ảnh</h2>
+<h2>9. Chia sẻ hình ảnh</h2>
 <p>Khi bạn dùng tính năng chia sẻ, ứng dụng tạo một ảnh trên máy và mở bảng chia sẻ của hệ điều hành. Bạn quyết định gửi ảnh đó đến đâu; chúng tôi không nhận được ảnh.</p>
 
-<h2>9. Trẻ em</h2>
+<h2>10. Trẻ em</h2>
 <p>Ứng dụng không hướng đến trẻ em dưới 13 tuổi. Trẻ dưới 13 tuổi không được tạo tài khoản. Nếu phát hiện tài khoản của trẻ em, chúng tôi sẽ xóa tài khoản đó.</p>
 
-<h2>10. Thay đổi chính sách</h2>
+<h2>11. Thay đổi chính sách</h2>
 <p>Chúng tôi có thể cập nhật chính sách này. Phiên bản mới sẽ được đăng tại trang này kèm ngày cập nhật.</p>
 
-<h2>11. Liên hệ</h2>
+<h2>12. Liên hệ</h2>
 <p>Mọi câu hỏi xin gửi về: <a href="mailto:htkycong@gmail.com">htkycong@gmail.com</a></p>
 </section>
 
@@ -91,7 +101,7 @@
 <p>LifeWay (“the app”) is developed by LifeWay. This policy explains how the app handles your data.</p>
 
 <h2>1. Data you enter</h2>
-<p>Your name or nickname, date of birth, gender, life expectancy, goals, loved ones’ details (name, relationship, date of birth) and daily notes are <strong>stored only on your device</strong>. The app works fully without an account. Only if you choose to sign in to connect with loved ones (section 4) is some data sent to our servers, and section 4 lists exactly what. We never sell your data.</p>
+<p>Your name or nickname, date of birth, gender, life expectancy, goals, loved ones’ details (name, relationship, date of birth) and daily notes are <strong>stored only on your device</strong>. The app works fully without an account. This data is not sent to our servers. What is sent: connection data if you choose to sign in (section 4), and usage analytics and crash reports that never contain what you write (section 5). We never sell your data.</p>
 <p>You can erase all data at any time in <em>Settings → Erase all data</em>, or by uninstalling the app.</p>
 
 <h2>2. Notifications and widgets</h2>
@@ -108,7 +118,7 @@
 <p>How Google uses data: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>. You can opt out of personalized ads in your device’s ad settings.</p>
 
 <h2>4. Account and connecting with loved ones (optional)</h2>
-<p>You can sign in with Google or Apple to connect with loved ones: chat, send photos, share your mood and answer a daily family question. If you do, we store the following on Google Firebase (Authentication, Cloud Firestore):</p>
+<p>You can sign in with Google or Apple to connect with loved ones: chat, send photos, post Moments, share your mood and answer a daily family question. If you do, we store the following on Google Firebase (Authentication, Cloud Firestore):</p>
 <ul>
   <li><strong>Account info</strong>: name, email, profile photo (if any) and user ID provided by Google/Apple, plus your app language. If you choose “Hide My Email” with Apple, we only receive the relay address.</li>
   <li><strong>Connection code</strong>: each account has a permanent 6-character code linked to your display name. Anyone signed in who enters your exact code can see your display name. Codes cannot be listed or browsed.</li>
@@ -116,31 +126,41 @@
   <li><strong>What connected loved ones can see</strong>: when you were last active (to show an “online” status), your mood for the day (an emoji and a note of up to 80 characters), your answer to the daily family question (up to 200 characters), and <strong>your birth date, only if you turn on “Share my birthday with loved ones”</strong>.</li>
   <li><strong>Messages</strong> between connected accounts, with their timestamps. Messages are kept until you delete your account.</li>
   <li><strong>Photos sent in chat</strong>: the photo you choose is compressed and stored temporarily on our server. When the recipient opens the chat, it is saved on their device and <strong>deleted from the server</strong>. Photos the recipient never opens are deleted by the sender’s app after about 30 days (the next time the sender opens the app), and are always deleted when the sender deletes their account.</li>
+  <li><strong>Moments</strong>: a status (up to 280 characters) and/or one photo, visible only to loved ones connected with you when you post. They can react and comment (up to 200 characters). Each post shows for 24 hours; after that your app deletes the post, its photo and comments from the server the next time you open the app, usually about 24 hours after posting. Viewers download the photo once and keep it in their device cache.</li>
   <li><strong>Push token</strong> for your device (Expo push token), used to deliver message and connection notifications.</li>
 </ul>
 <p>Only you and the people you are connected with can see this data. It is used only to run the connection feature. We do not use it for advertising and never sell it. Google processes it on our behalf under the <a href="https://firebase.google.com/support/privacy">Firebase privacy terms</a>. Push notifications are sent through <a href="https://expo.dev/privacy">Expo’s service</a> and delivered via Firebase Cloud Messaging (Android) or the Apple Push Notification service (iOS). Data may be stored or processed on servers outside your country.</p>
 <p><strong>Block and report</strong>: you can block or report an account in the app. Blocking removes the connection and stops contact both ways. A report contains the reporter, the reported account, the related message (if any) and the reason. We review reports and may remove content or suspend accounts that break the rules. Reports are kept for safety, even after an account is deleted.</p>
-<p><strong>Account deletion</strong>: you can delete your account in the app (<em>Settings → Account → Delete account</em>). This <strong>immediately</strong> deletes your account info, connection code, connection requests, connections, messages (sent and received), photos still on the server, your block list and push tokens. If you signed in with Apple, the app’s access is also revoked. Some data is not deleted: photos and messages a loved one <strong>already received and saved on their device</strong> stay on their device, and data stored only on your device (section 1) stays until you erase it. Instructions: <a href="../delete-account/">htkycong.github.io/lifeway/delete-account</a>.</p>
+<p><strong>Account deletion</strong>: you can delete your account in the app (<em>Settings → Account → Delete account</em>). This <strong>immediately</strong> deletes your account info, connection code, connection requests, connections, messages (sent and received), photos still on the server, your Moments (with their photos and comments), your block list and push tokens. If you signed in with Apple, the app’s access is also revoked. Some data is not deleted: photos and messages a loved one <strong>already received and saved on their device</strong> stay on their device; comments you left on other people’s Moments disappear when those posts expire and are cleaned up; and data stored only on your device (section 1) stays until you erase it. Instructions: <a href="../delete-account/">htkycong.github.io/lifeway/delete-account</a>.</p>
 
-<h2>5. Weather (optional, off by default)</h2>
+<h2>5. Usage analytics and crash reports</h2>
+<p>To learn which features help and to fix bugs faster, the app uses Google’s <strong>Firebase Analytics</strong> and <strong>Firebase Crashlytics</strong>:</p>
+<ul>
+  <li><strong>Usage analytics</strong>: the screens you open and events such as “sent a message (photo)”, “set a mood” or “added a task”. Events <strong>never contain what you write or send</strong>. They include an app-instance ID, device and OS information, and your approximate country or region.</li>
+  <li><strong>Crash reports</strong>: when the app crashes, Crashlytics sends technical details about the error with your device model and OS version.</li>
+  <li>If you sign in, both are linked to your Firebase user ID (a random ID, not your name or email) so we can understand how people use the app over time.</li>
+</ul>
+<p>We use this data only to improve the app, never to personalize ads. How Google handles it: <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
+
+<h2>6. Weather (optional, off by default)</h2>
 <p>If you turn on live weather for the home scene (<em>Settings → Home scene</em>), the app asks for <strong>approximate location</strong>, only while you are using it and never in the background. The coordinates are rounded to about 10 km and sent to the free weather service <a href="https://open-meteo.com/en/terms">Open-Meteo</a>, only to get the current conditions (sun, rain, snow…). We do not store your location or share it with anyone else. You can turn this off or revoke location access at any time.</p>
 
-<h2>6. Profile photo and chat photos</h2>
-<p>When you choose a profile photo or send a photo in chat, the app asks for access to your photo library and reads only the photo you pick. Your profile photo stays on your device and is never uploaded. Photos sent in chat are handled as described in section 4. The app does not use the camera or microphone.</p>
+<h2>7. Profile photo and chat photos</h2>
+<p>When you choose a profile photo, send a photo in chat or post one to Moments, the app asks for access to your photo library and reads only the photo you pick. Your profile photo stays on your device and is never uploaded. Photos in chat and Moments are handled as described in section 4. The app does not use the camera or microphone.</p>
 
-<h2>7. Backup and restore</h2>
+<h2>8. Backup and restore</h2>
 <p>You can export your data to a backup file (JSON) and choose where to save or send it, such as Google Drive, iCloud or email. You can import that file again to restore your data. We never receive your backup. Keep the file safe, as it contains the personal data you entered.</p>
 
-<h2>8. Sharing images</h2>
+<h2>9. Sharing images</h2>
 <p>When you share, the app creates an image on your device and opens the system share sheet. You choose where it goes; we never receive it.</p>
 
-<h2>9. Children</h2>
+<h2>10. Children</h2>
 <p>The app is not directed at children under 13, and children under 13 may not create an account. If we learn that an account belongs to a child, we will delete it.</p>
 
-<h2>10. Changes</h2>
+<h2>11. Changes</h2>
 <p>We may update this policy. The new version will be posted on this page with its date.</p>
 
-<h2>11. Contact</h2>
+<h2>12. Contact</h2>
 <p>Questions: <a href="mailto:htkycong@gmail.com">htkycong@gmail.com</a></p>
 </section>
 </main>
