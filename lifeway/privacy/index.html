@@ -48,7 +48,7 @@
 <p>Bạn có thể đăng nhập bằng Google hoặc Apple để kết nối với người thân: nhắn tin, gửi ảnh, đăng Khoảnh khắc, chia sẻ tâm trạng và trả lời câu hỏi gia đình mỗi ngày. Khi đó, chúng tôi lưu những dữ liệu sau trên Google Firebase (Authentication, Cloud Firestore):</p>
 <ul>
   <li><strong>Thông tin tài khoản</strong>: tên, email, ảnh hồ sơ (nếu có) và mã người dùng do Google/Apple cung cấp, cùng ngôn ngữ ứng dụng của bạn. Nếu bạn chọn “Ẩn email của tôi” với Apple, chúng tôi chỉ nhận được địa chỉ chuyển tiếp.</li>
-  <li><strong>Mã kết nối</strong>: mỗi tài khoản có một mã cố định gồm 6 ký tự, gắn với tên hiển thị của bạn. Ai đã đăng nhập và nhập đúng mã thì thấy được tên hiển thị của bạn. Không ai xem được danh sách các mã.</li>
+  <li><strong>Mã kết nối</strong>: mỗi tài khoản có một mã cố định gồm 6 ký tự (cũng hiển thị dưới dạng mã QR), gắn với tên hiển thị của bạn. Ai đã đăng nhập và nhập đúng mã thì thấy được tên hiển thị của bạn. Không ai xem được danh sách các mã.</li>
   <li><strong>Yêu cầu kết nối và kết nối</strong>: khi ai đó nhập mã của bạn, ứng dụng lưu một yêu cầu đang chờ kèm tên của họ. Hai người chỉ được kết nối sau khi <strong>bạn bấm đồng ý</strong>. Chúng tôi <strong>không</strong> thu thập số điện thoại và không đọc danh bạ trên máy.</li>
   <li><strong>Thông tin chia sẻ với người đã kết nối</strong>: thời điểm bạn hoạt động gần nhất (để hiện trạng thái “đang online”), tâm trạng trong ngày (biểu tượng cảm xúc và ghi chú tối đa 80 ký tự), câu trả lời cho câu hỏi gia đình mỗi ngày (tối đa 200 ký tự), và <strong>ngày sinh của bạn, chỉ khi bạn bật “Chia sẻ ngày sinh với người thân”</strong>.</li>
   <li><strong>Tin nhắn</strong> giữa hai tài khoản đã kết nối, kèm thời điểm gửi. Tin nhắn được lưu cho đến khi bạn xóa tài khoản.</li>
@@ -75,8 +75,8 @@
 <h2>6. Thời tiết (tùy chọn, mặc định tắt)</h2>
 <p>Nếu bạn bật thời tiết thật cho cảnh trang chủ (<em>Cài đặt → Bối cảnh trang chủ</em>), ứng dụng xin quyền <strong>vị trí gần đúng</strong>, chỉ khi bạn đang dùng app và không bao giờ chạy nền. Tọa độ được làm tròn đến khoảng 10 km rồi gửi tới dịch vụ thời tiết miễn phí <a href="https://open-meteo.com/en/terms">Open-Meteo</a>, chỉ để lấy tình trạng thời tiết hiện tại (nắng, mưa, tuyết…). Chúng tôi không lưu vị trí và không gửi vị trí cho bên nào khác. Bạn có thể tắt tính năng này hoặc thu hồi quyền vị trí bất cứ lúc nào.</p>
 
-<h2>7. Ảnh và micro</h2>
-<p>Khi bạn chọn ảnh đại diện, gửi ảnh trong tin nhắn hoặc đăng ảnh lên Khoảnh khắc, ứng dụng xin quyền truy cập thư viện ảnh và chỉ đọc đúng ảnh bạn chọn. Ảnh đại diện chỉ lưu trên máy của bạn và không được tải lên. Ảnh trong tin nhắn và Khoảnh khắc được xử lý như mô tả ở mục 4. Ứng dụng không dùng camera. <strong>Micro</strong> chỉ được dùng khi bạn tự bấm ghi âm một câu chuyện trong Sách ký ức (mục 4), và không bao giờ ghi âm khi chạy nền.</p>
+<h2>7. Ảnh, camera và micro</h2>
+<p>Khi bạn chọn ảnh đại diện, gửi ảnh trong tin nhắn hoặc đăng ảnh lên Khoảnh khắc, ứng dụng xin quyền truy cập thư viện ảnh và chỉ đọc đúng ảnh bạn chọn. Ảnh đại diện chỉ lưu trên máy của bạn và không được tải lên. Ảnh trong tin nhắn và Khoảnh khắc được xử lý như mô tả ở mục 4. <strong>Camera</strong> chỉ được dùng để quét mã QR kết nối của người thân. Ứng dụng không chụp, không quay và không lưu hình ảnh nào từ camera. <strong>Micro</strong> chỉ được dùng khi bạn tự bấm ghi âm một câu chuyện trong Sách ký ức (mục 4), và không bao giờ ghi âm khi chạy nền.</p>
 
 <h2>8. Sao lưu và khôi phục</h2>
 <p>Bạn có thể xuất dữ liệu (gồm cả chữ trong Hộp kỷ niệm và những ngày bên nhau; ảnh không nằm trong tệp) ra một tệp sao lưu (JSON) và tự chọn nơi lưu hoặc gửi tệp đó, ví dụ Google Drive, iCloud hay email. Bạn cũng có thể nhập lại tệp này để khôi phục. Chúng tôi không nhận được tệp sao lưu của bạn. Hãy giữ tệp này cẩn thận vì nó chứa dữ liệu cá nhân bạn đã nhập.</p>
@@ -124,7 +124,7 @@
 <p>You can sign in with Google or Apple to connect with loved ones: chat, send photos, post Moments, share your mood and answer a daily family question. If you do, we store the following on Google Firebase (Authentication, Cloud Firestore):</p>
 <ul>
   <li><strong>Account info</strong>: name, email, profile photo (if any) and user ID provided by Google/Apple, plus your app language. If you choose “Hide My Email” with Apple, we only receive the relay address.</li>
-  <li><strong>Connection code</strong>: each account has a permanent 6-character code linked to your display name. Anyone signed in who enters your exact code can see your display name. Codes cannot be listed or browsed.</li>
+  <li><strong>Connection code</strong>: each account has a permanent 6-character code (also shown as a QR code) linked to your display name. Anyone signed in who enters your exact code can see your display name. Codes cannot be listed or browsed.</li>
   <li><strong>Connection requests and connections</strong>: when someone enters your code, the app stores a pending request with their name. You are connected only after <strong>you approve</strong>. We do <strong>not</strong> collect phone numbers and never read your device contacts.</li>
   <li><strong>What connected loved ones can see</strong>: when you were last active (to show an “online” status), your mood for the day (an emoji and a note of up to 80 characters), your answer to the daily family question (up to 200 characters), and <strong>your birth date, only if you turn on “Share my birthday with loved ones”</strong>.</li>
   <li><strong>Messages</strong> between connected accounts, with their timestamps. Messages are kept until you delete your account.</li>
@@ -151,8 +151,8 @@
 <h2>6. Weather (optional, off by default)</h2>
 <p>If you turn on live weather for the home scene (<em>Settings → Home scene</em>), the app asks for <strong>approximate location</strong>, only while you are using it and never in the background. The coordinates are rounded to about 10 km and sent to the free weather service <a href="https://open-meteo.com/en/terms">Open-Meteo</a>, only to get the current conditions (sun, rain, snow…). We do not store your location or share it with anyone else. You can turn this off or revoke location access at any time.</p>
 
-<h2>7. Photos and microphone</h2>
-<p>When you choose a profile photo, send a photo in chat or post one to Moments, the app asks for access to your photo library and reads only the photo you pick. Your profile photo stays on your device and is never uploaded. Photos in chat and Moments are handled as described in section 4. The app does not use the camera. The <strong>microphone</strong> is used only while you choose to record a story in the Family story book (section 4), and never records in the background.</p>
+<h2>7. Photos, camera and microphone</h2>
+<p>When you choose a profile photo, send a photo in chat or post one to Moments, the app asks for access to your photo library and reads only the photo you pick. Your profile photo stays on your device and is never uploaded. Photos in chat and Moments are handled as described in section 4. The <strong>camera</strong> is used only to scan a loved one’s connection QR code. The app never takes, records or saves any picture from the camera. The <strong>microphone</strong> is used only while you choose to record a story in the Family story book (section 4), and never records in the background.</p>
 
 <h2>8. Backup and restore</h2>
 <p>You can export your data (including Memory box text and days together; photos are not included) to a backup file (JSON) and choose where to save or send it, such as Google Drive, iCloud or email. You can import that file again to restore your data. We never receive your backup. Keep the file safe, as it contains the personal data you entered.</p>
